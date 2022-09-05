@@ -1,0 +1,62 @@
+﻿@model Kemergency.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="site-section bg-light border-primary ">
+    <div class="container">
+        <div class="col"></div>
+        <div class="col-md-8 col-sm-12">
+            <div class="card">
+                <div class="border-dark">
+                    <form method="post" asp-action="Login" class="p-5 bg-white">
+                        <img  src="~/images/th (2).jpg" class="img-fluid sigin-img"/>
+                        <div class=" form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class=" form-group">
+
+                           
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                           
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="RememberMe">
+                                    <input asp-for="RememberMe" />
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                           
+                                <button type="submit" class="btn btn-primary">داخل کیدل</button>
+                        
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="col"></div>
+       
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

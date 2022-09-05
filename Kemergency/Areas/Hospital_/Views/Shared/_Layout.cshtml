@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <!-- Open Graph Meta-->
+    <title>KEemergency</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/toastr.js/toastr.css" rel="stylesheet" />
+    <!-- Main CSS-->
+
+    <link href="~/css/main.css" rel="stylesheet" />
+    @*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <partial name="_header" />
+    <partial name="_sideBar" />
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+
+    <!-- Demo Js -->
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Admin/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Admin/js/main.js"></script>
+    <script type="text/javascript" src="~/Admin/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Admin/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

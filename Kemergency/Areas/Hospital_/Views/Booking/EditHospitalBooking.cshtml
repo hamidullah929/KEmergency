@@ -1,0 +1,84 @@
+﻿@model Kemergency.ViewModels.EditBookingViewModel
+
+@{
+    ViewData["Title"] = "EditHospitalBooking";
+
+}
+
+
+
+@*<h4>Are you sure to confirm this booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+
+            <input hidden asp-for="MyusersId" class="form-control" />
+
+
+
+
+            <input type="submit" value="Edit" class="btn btn-success">
+
+
+
+        </form>
+    </div>
+</div>*@
+
+<h4>Are you sure to confirm this booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post"  id="myform">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="myId" asp-for="Id" />
+
+
+            <input hidden asp-for="MyusersId" class="form-control" />
+
+
+
+
+            <button id="btnsubmit"  class="btn btn-primary">Edit</button>
+
+
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+
+                var myformdata = $("#myId").val;
+
+                $.ajax({
+                    method: "Post",
+                    url: "/Hospital_/Booking/Edit" + myformdata,
+                    success: function (response) {
+                        if (response.success) {
+                            alert("HI")
+                        } else {
+                            aler("how are you")
+                        }
+                      
+                    }
+                })
+            })
+
+        })
+    </script>
+
+
+
+    /**/
+}

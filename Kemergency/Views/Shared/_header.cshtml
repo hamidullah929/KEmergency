@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+<header class="site-navbar py-4 bg-white" role="banner">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-11 col-xl-2">
+                <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">امیرجنسي</a></h1>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+
+                    <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a asp-action="index" asp-controller="Home">اصلی صفحه</a></li>
+
+                        <li class="has-children active">
+                            <a href="services.html">خدمات</a>
+                            <ul class="dropdown">
+                                <li><a asp-action="booking" asp-controller="Hospitals">امبولانس</a></li>
+                                <li><a asp-action="Index" asp-controller="FireTrackService">اطفایه</a></li>
+                                <li><a asp-action="booking" asp-controller="Hospitals">داکتر</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">تماس نیول</a></li>
+                        <partial name="_LoginPartial" />
+                        @if (SignInManager.IsSignedIn(User)&& User.IsInRole("hospital"))
+                        {
+                    <li class="dropdown">
+                        <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" asp-action="index" asp-controller="Dashboard" asp-area="hospital_"><i class="fa fa-cog fa-lg"></i> DashBoard</a></li>
+                            <li><a class="dropdown-item" asp-action="Edit" asp-controller="Profile" asp-area="hospital_"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                            <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account" asp-area="Identity"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                        }
+                        else if (SignInManager.IsSignedIn(User)&& User.IsInRole("Admin"))
+
+                        {
+
+
+                            <li class="dropdown">
+                                <a class="app-nav__item"  data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-controller="Profile" asp-area="Customer"><i class="fa fa-cog fa-lg"></i> DashBoard</a></li>
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-controller="Profile" asp-area="Customer"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account" asp-area="Identity"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else if(SignInManager.IsSignedIn(User))
+                        {
+                            <li class="dropdown">
+                                <a class="app-nav__item" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" asp-action="index" asp-controller="Dashboard" asp-area="Customer"><i class="fa fa-cog fa-lg"></i> DashBoard</a></li>
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-controller="Profile" asp-area="Customer"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account" asp-area="Identity"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                                </ul>
+                            </li>
+
+                        }
+
+                    </ul>
+
+                </nav>
+            </div>
+
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+
+    </div>
+
+
+</header>

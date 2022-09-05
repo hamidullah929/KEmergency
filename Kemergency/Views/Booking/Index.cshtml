@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Kemergency.ViewModels.HospitalBookingViewModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookingtime)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingtime)
+            </td>
+
+            <td>
+                <button class="btn btn-primary" id="bookingConfirm">Confirmed</button> |
+                <a  asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

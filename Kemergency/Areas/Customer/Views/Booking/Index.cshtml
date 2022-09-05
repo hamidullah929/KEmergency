@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Kemergency.ViewModels.HospitalBookingViewModel>
+
+<main class="app-content">
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-th-list"></i> Booking</h1>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HospitalNAme)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HsopitalNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ServicesName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DriverName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DriverNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Bookingtime)
+                                    </th>
+                                    <th>
+                                        Confirmation
+                                    </th>
+
+
+                                    <th>  Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HospitalNAme)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HsopitalNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ServicesName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DriverName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DriverNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Bookingtime)
+                                        </td>
+                                        @if (item.confirmed == true)
+                                        {
+                                            <td>
+                                                <span class="badge-success">Confirmed</span>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <span class="badge-danger">Not Confirmed</span>
+                                            </td>
+
+                                        }
+
+
+                                    <td>
+
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-map"> </i></a> |
+                                        <a href="#" onclick="ShowEmployee('@item.Id')"><i class="fa fa-pencil"></i> </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+
+
+                                    </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                        <h3 class="modal-title"></h3>
+                                    </div>
+                                    <div class="modal-body" id="myModalBodyDiv">
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            $("#sampleTable").DataTable();
+        })
+
+        var ShowEmployee = function (employeeId) {
+
+            var url = "/customer/Booking/Details?Id=" + employeeId;
+
+            $("#myModalBodyDiv").load(url, function () {
+                $("#myModal").modal("show");
+
+            })
+
+            //Or
+            //$.ajax({
+
+            //    type: "POST",
+            //    url: "/Test/ShowEmployee",
+            //    data: { EmployeeId: employeeId },
+            //    success: function (response) {
+
+            //        $("#myModalBodyDiv").html(response);
+
+            //        $("#myModal").modal("show");
+
+
+            //    }
+
+            //})
+        }
+    </script>
+
+}
+
+

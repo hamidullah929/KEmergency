@@ -1,0 +1,96 @@
+﻿@model Kemergency.Areas.FireTrackK.Models.FireTrack
+
+
+
+<h2>Edit</h2>
+
+<h4>FireTrack</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form  asp-action="CreateRentals" asp-controller="FireTrackRental">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrackNumber" class="control-label"></label>
+                <input asp-for="TrackNumber" class="form-control" />
+                <span asp-validation-for="TrackNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phoneNumber" class="control-label"></label>
+                <input asp-for="phoneNumber" class="form-control" />
+                <span asp-validation-for="phoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverName" class="control-label"></label>
+                <input asp-for="DriverName" class="form-control" />
+                <span asp-validation-for="DriverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverNumber" class="control-label"></label>
+                <input asp-for="DriverNumber" class="form-control" />
+                <span asp-validation-for="DriverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               <input type="submit"  id="mysubmit" value="book" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts{
+    <script>
+
+        //$(document).ready(function () {
+        //    $("#sampleTable").DataTable();
+        //})
+
+        //var ShowEmployee = function (employeeId) {
+
+        //    var url = "/customer/Booking/Details?Id=" + employeeId;
+
+        //    $("#myModalBodyDiv").load(url, function () {
+        //        $("#myModal").modal("show");
+
+        //    })
+        $(document).ready(function () {
+
+            $("#mysubmit").click(function () {
+                $.ajax({
+                    success: function (response) {
+                        if (response.success) {
+                            aler("good")
+                        } else {
+                            alert("flase")
+                        }
+
+
+                    }
+
+                })
+            })
+
+        })
+          
+           
+     
+    </script>
+
+}
+

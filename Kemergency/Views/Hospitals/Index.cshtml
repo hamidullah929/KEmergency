@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Kemergency.Models.Hospital>
+
+    @{ ViewBag.Title = "Hopitals";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+    <h2>Hospital Services</h2>
+    <p>
+        @Html.ActionLink("New services", "New", "Hospitals", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table id="hospital" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Services</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+    $(document).ready(function () {
+                var table = $("#hospital").DataTable({
+                    ajax: {
+                        url: "/api/hospitals",
+                        dataSrc: ""
+                    },
+                    columns: [
+                        {
+                            data: "name",
+                            render: function (data, type, hospital) {
+                                return "<a href='/hospitals/edit/" + hospital.id + "'>" + hospital.name + "</a>";
+                            }
+                        },
+                        {
+                            data: "hservice.name"
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn-link js-delete' data-hospital-id=" + data + ">Delete</button>";
+                            }
+                        }
+                    ]
+                });
+
+
+                $("#hospital").on("click", ".js-delete", function () {
+                    var button = $(this);
+
+                    bootbox.confirm("Are you sure you want to delete this hospital?", function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/hospitals/" + button.attr("data-hospital-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    table.row(button.parents("tr")).remove().draw();
+                                }
+                            });
+                        }
+                    });
+                });
+            });</script>
+    }

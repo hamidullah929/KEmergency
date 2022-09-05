@@ -1,0 +1,56 @@
+﻿@model Kemergency.ViewModels.HospitalBookingViewModel
+
+@{
+    ViewData["Title"] = "DeleteBooking";
+}
+
+
+
+<h3>Are you sure you want to Cancel  this Booking?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bookingtime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bookingtime))
+        </dd>
+
+    </dl>
+
+    <form method="post" asp-action="DeleteConfirm">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" id="btnSubmit" value="Delete"  class="btn btn-success">
+             
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+@section Scripts{
+
+    <script>
+       
+    </script>
+
+    /**/
+}

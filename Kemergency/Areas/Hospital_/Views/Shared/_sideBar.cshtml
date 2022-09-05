@@ -1,0 +1,22 @@
+﻿<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <div class="app-sidebar__user">
+        <img class="app-sidebar__user-avatar"  alt="User Image">
+        <div>
+            <p class="app-sidebar__user-name">John Doe</p>
+            <p class="app-sidebar__user-designation">Frontend Developer</p>
+        </div>
+    </div>
+    <ul class="app-menu">
+        <li><a class="app-menu__item " asp-area="Hospital_" asp-action="index" asp-controller="DashBoard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item " asp-area="Hospital_" asp-action="Create" asp-controller="Service"><i class="app-menu__icon fa fa-user-plus"></i><span class="app-menu__label">Add services</span></a></li>
+        <li><a class="app-menu__item " asp-area="Hospital_" asp-action="New" asp-controller="HospitalInfo"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Add Hospital Info</span></a></li>
+
+        <li><a class="app-menu__item" asp-action="Index" asp-area="Hospital_" asp-controller="Booking"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Booking</span></a></li>
+
+        <li><a class="app-menu__item" asp-action="Edit" asp-area="Hospital_" asp-controller="profile"><i class="app-menu__icon fa fa-user-plus"></i><span class="app-menu__label">Edit Profile</span></a></li>
+
+
+        <li><a class="app-menu__item" asp-action="Logout" asp-controller="Account" asp-area="Identity"><i class="app-menu__icon fa fa-backward"></i><span class="app-menu__label">LogOut</span></a></li>
+    </ul>
+</aside>
