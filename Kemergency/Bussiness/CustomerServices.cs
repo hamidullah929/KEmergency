@@ -23,7 +23,7 @@ namespace Kemergency.Bussiness
 
         public Myusers GetById(string id)
         {
-            return _context.Customers.Where(c => c.Id == id).FirstOrDefault();
+            return _context.Customers.Where(c => c.Id == id).SingleOrDefault();
         }
 
        public void EditUser(Myusers newuser)

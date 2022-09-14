@@ -76,6 +76,8 @@ namespace Kemergency.Areas.Customer.Controllers
             return View(viewModel);
         }
 
+
+
         [Route("Customer/booking/Details")]
         public IActionResult Details(string id)
         {

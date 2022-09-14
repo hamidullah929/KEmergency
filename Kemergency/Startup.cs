@@ -65,6 +65,7 @@ namespace Kemergency
             services.AddScoped<CustomerServices>();
             services.AddScoped<AmbulanceServices>();
             services.AddScoped<FireTrackServices>();
+            services.AddScoped<FireTrackBookingServices>();
             services.AddScoped<FireTrackRentalService>();
             services.AddDistributedMemoryCache();
             services.AddSession();
@@ -110,6 +111,10 @@ namespace Kemergency
                       name: "Customer",
                       pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
                     );
+                endpoints.MapControllerRoute(
+                     name: "FireTrackK",
+                     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                   );
                 app.UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllerRoute(

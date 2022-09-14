@@ -1,0 +1,44 @@
+﻿
+@model Kemergency.ViewModels.FireTrackBookingViewModel
+
+
+
+<div class="row">
+
+    <div class="col-6">
+        <h2 class="page-header"><i class="fa fa-globe"></i> Details</h2>
+    </div>
+    <div class="col-6">
+        <h5 class="text-right">Date: 01/01/2016</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        From
+        <address>
+            <strong>
+                @Html.DisplayNameFor(model => model.ServicesName)
+            </strong><br>
+
+            @Html.DisplayNameFor(model => model.Bookingtime)<br>
+            @Html.DisplayNameFor(model => model.DriverName)<br>
+            @Html.DisplayNameFor(model => model.DriverNumber)<br>
+
+        </address>
+    </div>
+    <div class="col-6">
+        To
+        <address>
+            <strong>
+                @Html.DisplayFor(model => model.ServicesName)
+            </strong><br>
+            @Html.DisplayFor(model => model.Bookingtime)<br>
+            @Html.DisplayFor(model => model.DriverName)<br>
+            @Html.DisplayFor(model => model.DriverNumber)<br>
+        </address>
+    </div>
+</div>
+
+
+
+

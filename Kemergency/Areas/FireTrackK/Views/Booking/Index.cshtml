@@ -1,0 +1,194 @@
+﻿@model IEnumerable<Kemergency.ViewModels.FireTrackBookingViewModel>
+@{
+    ViewData["Title"] = "Index";
+   
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">نیول سوي خدمات</h6>
+                </div>
+            </div>
+            <div class="card-body ">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustomerName)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustomerNumber)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustomerAddress)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Bookingtime)
+                                </th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustomerName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustomerNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustomerAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Bookingtime)
+                                    </td>
+
+                                    <td>
+
+
+                                        <a href="#" onclick="myedit(@item.Id)"><i class="fa fa-check"></i></a> |
+                                        <a href="#" onclick="ShowEmployee(@item.Id)"><i class="fa fa-pencil"></i> </a>
+                                        <a href="#" onclick="Delete(@item.Id)"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                    <h3 class="modal-title"></h3>
+                                </div>
+                                <div class="modal-body" id="myModalBodyDiv">
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*<main class="app-content">
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-th-list"></i> Booking</h1>
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</main>*@
+
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            $("#sampleTable").DataTable();
+        })
+
+            var Delete = function (Id) {
+                var url = "/FireTrackK/Booking/DeleteBooking?Id=" + Id;
+                $("#myModalBodyDiv").load(url, function () {
+
+                    $("#myModal").modal("show");
+                })
+            }
+
+
+            var ShowEmployee = function (employeeId) {
+
+                var url = "/FireTrackK/Booking/Details?Id=" + employeeId;
+
+                $("#myModalBodyDiv").load(url, function () {
+                    $("#myModal").modal("show");
+
+                })
+
+
+
+            }
+
+            var myedit = function (employeeId) {
+
+                var url = "/FireTrackK/Booking/EditHospitalBooking?Id=" + employeeId;
+
+                $("#myModalBodyDiv").load(url, function () {
+                    $("#myModal").modal("show");
+
+                })
+
+            }
+
+    </script>
+
+
+
+}
+
+
+
+@*@section Scripts{
+
+        <script>
+
+            $(document).ready(function () {
+
+                $("#btnSubmit").click(function () {
+
+
+
+                    var myformdata = $("#myForm").serialize();
+
+                    $.ajax({
+
+                        type: "POST",
+                        url: "/Hospital_/Booking/DeleteConfirm",
+                        data: myformdata,
+                        success: function () {
+                            $("#myModal").modal("hide");
+                            window.location.href = "/hospital_/booking/Edit";
+
+                        }
+
+                    })
+                })
+
+            })
+
+
+        </script>
+
+
+
+    }*@

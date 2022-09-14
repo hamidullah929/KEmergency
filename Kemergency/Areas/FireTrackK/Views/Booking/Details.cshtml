@@ -1,0 +1,45 @@
+﻿
+@model Kemergency.ViewModels.FireTrackBookingViewModel
+@{
+    ViewData["Title"] = "Details";
+
+}
+<div class="row">
+
+    <div class="col-6">
+        <h2 class="page-header"><i class="fa fa-globe"></i> Details</h2>
+    </div>
+    <div class="col-6">
+        <h5 class="text-right">Date: 01/01/2016</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        From
+        <address>
+            <strong>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </strong><br>
+
+            @Html.DisplayNameFor(model => model.CustomerAddress)<br>
+            @Html.DisplayNameFor(model => model.CustomerNumber)<br>
+            @Html.DisplayNameFor(model => model.Bookingtime)<br>
+
+        </address>
+    </div>
+    <div class="col-6">
+
+        <address>
+            <strong>
+                @Html.DisplayFor(model => model.CustomerName)
+            </strong><br>
+
+            @Html.DisplayFor(model => model.CustomerAddress)<br>
+            @Html.DisplayFor(model => model.CustomerNumber)<br>
+
+            @Html.DisplayFor(model => model.Bookingtime)<br>
+
+        </address>
+    </div>
+</div>
+<div>
