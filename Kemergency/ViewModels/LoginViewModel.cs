@@ -17,13 +17,13 @@ namespace Kemergency.ViewModels
         pointing it to the action method that should be invoked when the email value changes.
          */
         [Required (ErrorMessage = "برښنالیک داخل کړي")]
-        [EmailAddress]
+        [EmailAddress (ErrorMessage = "برښنالیک  مو سم نه دي")]
         // [Remote(action: "IsEmailInUse", controller: "Account")]
         [Display(Name = "برښنالیک")]
         public string Email { get; set; }
 
         [Required (ErrorMessage = "پټ نوم داخل کړي")]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password, ErrorMessage = "پټ نوم باید حروف او حساب ولري ")]
         [Display(Name = "پټ نوم")]
         public string Password { get; set; }
 

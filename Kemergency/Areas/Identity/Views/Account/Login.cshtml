@@ -6,57 +6,59 @@
 }
 
 
-<div class="site-section bg-light border-primary ">
-    <div class="container">
-        <div class="col"></div>
-        <div class="col-md-8 col-sm-12">
-            <div class="card">
-                <div class="border-dark">
-                    <form method="post" asp-action="Login" class="p-5 bg-white">
-                        <img  src="~/images/th (2).jpg" class="img-fluid sigin-img"/>
-                        <div class=" form-group">
+    <div class="container signin-container">
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col-sm-12 col-md-8">
+                <div class="card signin-card">
+                    <div class="card-body ">
+                        <img src="~/" class="img-fluid signin-img">
+                        <form method="post" asp-action="Login" class="signin-form" >
+                           
+                            <div class=" form-group">
                                 <label asp-for="Email"></label>
                                 <input asp-for="Email" class="form-control" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                        <div class=" form-group">
+                            </div>
+                            <div class=" form-group">
 
-                           
+
                                 <label asp-for="Password"></label>
                                 <input asp-for="Password" class="form-control" />
                                 <span asp-validation-for="Password" class="text-danger"></span>
-                           
-                        </div>
 
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label asp-for="RememberMe">
-                                    <input asp-for="RememberMe" />
-                                    @Html.DisplayNameFor(m => m.RememberMe)
-                                </label>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                           
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label asp-for="RememberMe">
+                                        <input asp-for="RememberMe" />
+                                        @Html.DisplayNameFor(m => m.RememberMe)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
                                 <button type="submit" class="btn btn-primary">داخل کیدل</button>
-                        
-                        </div>
+
+                            </div>
 
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
-
+                <a  asp-action="Regester" asp-controller="Account" asp-area="Identity" class="create-account">نوی یاست</a>
             </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
-       
     </div>
-</div>
+  
 
 
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

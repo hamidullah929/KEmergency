@@ -1,90 +1,114 @@
 ﻿@model Kemergency.ViewModels.NewHospitalViewModel
 @{ ViewBag.Title = "New"; }
 @{
-   
+
     Layout = "~/Areas/Hospital_/Views/Shared/_Layout.cshtml";
 }
 
-<main class="app-content">
-    <div class="app-title">
-        <div>
-            <h1><i class="fa fa-edit"></i> HospitalInfo</h1>
-
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("Save", "Hospitals", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        @Html.ValidationSummary(true, "Please fix the following errors.")
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.Name)
-                            @Html.TextBoxFor(m => m.Hospital.Name, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.Name)
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.HserviceId)
-                            @Html.DropDownListFor(m => m.Hospital.HserviceId, new SelectList(Model.hservices, "Id", "Name"), "", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.HserviceId)
-                        </div> <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.Address)
-                            @Html.TextBoxFor(m => m.Hospital.Address, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.Address)
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.StatusId)
-                            @Html.DropDownListFor(m => m.Hospital.StatusId, new SelectList(Model.Statuse, "Id", "Description"), "", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.StatusId)
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.Telephone)
-                            @Html.TextBoxFor(m => m.Hospital.Telephone, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.Telephone)
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Hospital.NumberOfAmbuliance)
-                            @Html.TextBoxFor(m => m.Hospital.NumberOfAmbuliance, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Hospital.NumberOfAmbuliance)
-                        </div>
-                        <div class="form-group">
-              
-
-                            <label asp-for="Hospital.DateOpen" class="control-label"></label>
-                            <input asp-for="Hospital.DateOpen" class="form-control" />
-                            <span asp-validation-for="Hospital.DateOpen" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                       
-
-                            <label asp-for="Hospital.ClosDate" class="control-label"></label>
-                            <input asp-for="Hospital.ClosDate" class="form-control" />
-                            <span asp-validation-for="Hospital.ClosDate" class="text-danger"></span>
-                        </div>
-
-                       
-
-                    </div>
-
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">معلومات اضافه کړي</h6>
                 </div>
+            </div>
+            <div class="card-body ">
+                @using (Html.BeginForm("Save", "HospitalInfo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
 
-                <div class="checkbox">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @Html.ValidationSummary(true, "Please fix the following errors.")
+                            <div class="form-group ">
+                                @Html.LabelFor(m => m.Hospital.Name, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline">
+                                    @Html.TextBoxFor(m => m.Hospital.Name, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Hospital.Name)
+                            </div>
 
-                </div>
-                @Html.HiddenFor(m => m.Hospital.Id)
-                @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-primary">Save</button>}
+                            <div class="form-group ">
+                                @Html.LabelFor(m => m.Hospital.HserviceId, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline ">
+                                    @Html.DropDownListFor(m => m.Hospital.HserviceId, new SelectList(Model.hservices, "Id", "Name"), "", new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Hospital.HserviceId)
+                            </div> <div class="form-group ">
+                                @Html.LabelFor(m => m.Hospital.Address, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline ">
+                                    @Html.TextBoxFor(m => m.Hospital.Address, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Hospital.Address)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Hospital.StatusId, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline ">
+                                    @Html.DropDownListFor(m => m.Hospital.StatusId, new SelectList(Model.Statuse, "Id", "Description"), "", new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Hospital.StatusId)
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Hospital.Telephone, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline ">
+                                    @Html.TextBoxFor(m => m.Hospital.Telephone, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Hospital.Telephone)
+                            </div>
+
+                            <div class="form-group ">
+                                @Html.LabelFor(m => m.Hospital.NumberOfAmbuliance, new { @class = "form-label" })
+                                <div class=" input-group input-group-outline ">
+                                    @Html.TextBoxFor(m => m.Hospital.NumberOfAmbuliance, new { @class = "form-control" })
+                                </div>
+
+                                @Html.ValidationMessageFor(m => m.Hospital.NumberOfAmbuliance)
+                            </div>
+                            <div class="form-group ">
 
 
+                                <label asp-for="Hospital.DateOpen" class="control-label "></label>
+                                <div class="input-group input-group-outline">
+                                    <input asp-for="Hospital.DateOpen" class="form-control" />
+                                </div>
+
+                                <span asp-validation-for="Hospital.DateOpen" class="text-danger"></span>
+                            </div>
+                            <div class="form-group ">
+
+
+                                <label asp-for="Hospital.ClosDate" class="control-label "></label>
+                                <div class="input-group input-group-outline ">
+                                    <input asp-for="Hospital.ClosDate" class="form-control" />
+                                </div>
+
+                                <span asp-validation-for="Hospital.ClosDate" class="text-danger"></span>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="checkbox">
+
+                    </div>
+                    @Html.HiddenFor(m => m.Hospital.Id)
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">اضافه کړي</button>}
+
+
+            </div>
         </div>
     </div>
+</div>
 
-</main>
 
 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

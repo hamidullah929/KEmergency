@@ -16,7 +16,11 @@
     },
     {
       "library": "toastr.js@2.1.4",
-      "destination": "wwwroot/toastr.js/"
+      "destination": "wwwroot/lib/toastr.js/"
+    },
+    {
+      "library": "font-awesome@6.2.0",
+      "destination": "wwwroot/lib/font-awesome/"
     }
   ]
 }

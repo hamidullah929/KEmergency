@@ -82,7 +82,7 @@ namespace Kemergency.Areas.Hospital_.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Hospitals");
+            return RedirectToAction("Index", "Dashboard");
         }
         public IActionResult Index()
         {

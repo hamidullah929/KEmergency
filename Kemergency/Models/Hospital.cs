@@ -12,31 +12,38 @@ namespace Kemergency.Models
     public class Hospital
     {
         public int Id { get; set; }
-        [Display(Name = "Hospital Name")]
-      
+        [Required(ErrorMessage ="نوم داخل کړي ")]
+        [StringLength(100)]
+        [Display(Name = " هسبتال نوم")]
+
         public string Name { get; set; }
-     
-    
+        [Required(ErrorMessage = "ادرس داخل کړي ")]
+        [StringLength(250)]
+        [Display(Name = " هسبتال ادرس")]
         public string  Address { get; set; }
         public string Image { get; set; }
-        [Display(Name = "phone Number")]
-     
+        [Display(Name = " هسبتال تلیفون")]
+        [Phone(ErrorMessage = "تلیفون ")]
         public string Telephone { get; set; }
-        [Display(Name = "Open Hours")]
-      
-        public DateTime DateOpen { get; set; }
-        [Display(Name = "Close Date")]
-        public DateTime ClosDate { get; set; }
+        [Display(Name = " کاري وخت ")]
 
+        public DateTime DateOpen { get; set; }
+        [Display(Name = " کاري وخت ")]
+        public DateTime ClosDate { get; set; }
+        [Display(Name = " حالت")]
+        [Required(ErrorMessage = "حالت داخل کړي ")]
         public Status Status { get; set; }
-        [Display(Name = "Status")]
-      
+        [Required(ErrorMessage = "حالت داخل کړي ")]
+       
         public int StatusId { get; set; }
-        [Display(Name = "Ambulance")]
-      
+        [Display(Name = "امبولانسونو تعداد")]
+        [Required(ErrorMessage = "امبولانسونو تعداد داخل کړي ")]
         public string NumberOfAmbuliance { get; set; }
-      
+        [Display(Name = " خدمات نوم")]
+        [Required(ErrorMessage = "ا خدمات نوم داخل کړي ")]
         public int HserviceId { get; set; }
+        [Display(Name = " خدمات نوم")]
+        [Required(ErrorMessage = "ا خدمات نوم داخل کړي ")]
         public Hservice Hservice { get; set; }
         [NotMapped]
         [DisplayName("Upload File")]

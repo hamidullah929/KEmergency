@@ -46,7 +46,7 @@ namespace Kemergency.Controllers
        [Route("NewRentals/CreateRentals")]
         public IActionResult CreateRentals(NewHospitalViewModel  newrental)
         {
-           
+            bool success = false;
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var rental = new Rental
             {
@@ -59,8 +59,17 @@ namespace Kemergency.Controllers
             {
                 return ViewBag("Inter Valid Data");
             }
-            _context.CreateRental(rental);
-            return Content("inseted");
+            if (_context.CreateRental(rental))
+            {
+                success = true;
+                return Json(new { success });
+            }
+            else
+            {
+                return Json(new { success });
+            }
+
+          
         }
     }
 }

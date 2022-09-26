@@ -86,7 +86,7 @@ namespace Kemergency.Bussiness
             _context.Add(NewBooking);
         }
 
-        public bool EditRentals( int id)
+        public bool EditRentals(int id)
         {
 
             var getrental = _context.Rentals.Where(c => c.Id == id).SingleOrDefault();

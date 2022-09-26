@@ -1,41 +1,34 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Emergency</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!DOCTYPE html>
+    <html lang="a" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
- 
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/MainLaout/css/main.css" rel="stylesheet" />
+        <link href="~/toastr.js/toastr.css" rel="stylesheet" />
+        <title>My Site</title>
+    </head>
+        <body>
+           
+                <partial name="_header" />
+     
 
-    <link rel="stylesheet" href="~/MainLayout/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/MainLayout/css/jquery-ui.css">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
 
-    <link rel="stylesheet" href="~/MainLayout/css/style.css">
-    <link href="~/css/s.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                <partial name="_footer" />
 
-</head>
-<body>
-    <partial name="_header" />
-
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <partial name="_footer" />
-
-    <script src="~/MainLayout/js/jquery-3.3.1.min.js"></script>
-    <script src="~/Admin/js/popper.min.js"></script>
-    <script src="~/MainLayout/js/jquery-ui.js"></script>
-    <script src="~/MainLayout/js/bootstrap.min.js"></script>
-    <script src="~/MainLayout/js/main.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+                <script src="~/toastr.js/toastr.min.js"></script>
+                @await RenderSectionAsync("Scripts", required: false)
+        </body>
 </html>

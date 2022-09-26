@@ -10,8 +10,11 @@ namespace Kemergency.ViewModels
     {
         public int Id { get; set; }
         public string UId { get; set; }
+        [Display(Name = " مشتري نوم")]
         public string CustomerName { get; set; }
+        [Display(Name = " مشتري نمبر")]
         public string CustomerNumber { get; set; }
+        [Display(Name = " مشتري ادرس")]
         public string CustomerAddress { get; set; }
         [Display(Name = " هسپتال نوم")]
         public string HospitalNAme { get; set; }

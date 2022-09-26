@@ -1,57 +1,65 @@
 ﻿@model Kemergency.Areas.FireTrackK.Models.FireTrack
 
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 
-<h2>Edit</h2>
+<div class="container signin-container">
+    <div class="row">
+        <div class="col"></div>
 
-<h4>FireTrack</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form  asp-action="CreateRentals" asp-controller="FireTrackRental">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <input type="hidden" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="col-sm-12 col-md-8">
+            <div class="card signin-card">
+                <div class="card-body rtl">
+                    <form id="myForm"> @*asp-action="CreateRentals" asp-controller="FireTrackRental">*@
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input disabled asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Address" class="control-label"></label>
+                            <input disabled asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TrackNumber" class="control-label"></label>
+                            <input  disabled asp-for="TrackNumber" class="form-control" />
+                            <span asp-validation-for="TrackNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="phoneNumber" class="control-label"></label>
+                            <input disabled asp-for="phoneNumber" class="form-control" />
+                            <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DriverName" class="control-label"></label>
+                            <input disabled asp-for="DriverName" class="form-control" />
+                            <span asp-validation-for="DriverName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DriverNumber" class="control-label"></label>
+                            <input  disabled asp-for="DriverNumber" class="form-control" />
+                            <span asp-validation-for="DriverNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input  id="mysubmit" value="خد مات راوغواړي" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrackNumber" class="control-label"></label>
-                <input asp-for="TrackNumber" class="form-control" />
-                <span asp-validation-for="TrackNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="phoneNumber" class="control-label"></label>
-                <input asp-for="phoneNumber" class="form-control" />
-                <span asp-validation-for="phoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DriverName" class="control-label"></label>
-                <input asp-for="DriverName" class="form-control" />
-                <span asp-validation-for="DriverName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DriverNumber" class="control-label"></label>
-                <input asp-for="DriverNumber" class="form-control" />
-                <span asp-validation-for="DriverNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-               <input type="submit"  id="mysubmit" value="book" class="btn btn-primary"/>
-            </div>
-        </form>
+        </div>
+        <div class="col"></div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 
 @section Scripts{
@@ -72,24 +80,33 @@
         $(document).ready(function () {
 
             $("#mysubmit").click(function () {
+
+                var data = $("#myForm").serialize();
+
                 $.ajax({
+
+                    type: "post",
+                    url: "/FireTrackRental/CreateRentals",
+                    data: data,
+
                     success: function (response) {
                         if (response.success) {
-                            aler("good")
+                            toastr.success("تا سو خدمات ونیول")
                         } else {
-                            alert("flase")
+                            toastr.error("تا سو خدمات ونه نیول سول ")
                         }
 
 
                     }
 
                 })
+               
             })
 
         })
-          
-           
-     
+
+
+
     </script>
 
 }

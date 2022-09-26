@@ -23,10 +23,18 @@ namespace Kemergency.Bussiness
             return rentals;
         }
 
-        public void CreateRental(Rental newRental)
+        public bool CreateRental(Rental newRental)
         {
-            _context.Add(newRental);
-            _context.SaveChanges();
+            try
+            {
+                _context.Add(newRental);
+                _context.SaveChanges();
+                return true;
+            }catch(Exception e)
+            {
+                throw;
+            }
+           
         }
 
         public Rental GetById(int id)

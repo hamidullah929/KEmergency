@@ -88,8 +88,10 @@ namespace Kemergency.Areas.Hospital_.Controllers
 
         [Route("Hospital_/Booking/Edit")]
         [HttpPost]
-        public IActionResult Edit(int editmodel)
+        public IActionResult Edit( EditBookingViewModel model)
+
         {
+            bool success = false;
 
             //if (_context.EditRentals(editmodel.Id))
             //{
@@ -100,14 +102,15 @@ namespace Kemergency.Areas.Hospital_.Controllers
             //    return RedirectToAction("index");
             //}
 
-            bool success = false;
-            if (_context.EditRentals(editmodel))
+
+            if (_context.EditRentals(model.Id))
             {
                 success = true;
                 return Json( new { success});
             }
             else
             {
+                success = false;
                 return Json(new { success });
                
             }

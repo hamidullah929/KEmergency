@@ -1,4 +1,4 @@
-﻿<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+﻿@*<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <div class="app-sidebar__user">
         <img class="app-sidebar__user-avatar"  alt="User Image">
@@ -19,4 +19,71 @@
 
         <li><a class="app-menu__item" asp-action="Logout" asp-controller="Account" asp-area="Identity"><i class="app-menu__icon fa fa-backward"></i><span class="app-menu__label">LogOut</span></a></li>
     </ul>
+</aside>*@
+
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret  bg-gradient-dark" id="sidenav-main">
+    <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+            <img src="~/AreaLayout/img/th (2).jpg" class="navbar-brand-img h-100 rounded-3" alt="main_logo">
+            <span class="me-1 font-weight-bold text-white">امرجنسی</span>
+        </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse px-0 w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Hospital_" asp-action="index" asp-controller="DashBoard">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text me-1">اصلي مینو</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-action="Index" asp-area="Hospital_" asp-controller="Booking">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10"> checklist</i>
+                    </div>
+                    <span class="nav-link-text me-1"> نیول سوی خدمات</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Hospital_" asp-action="Create" asp-controller="Service">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10">checklist</i>
+                    </div>
+                    <span class="nav-link-text me-1">  خدمات اضافه کړي</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link "    asp-area="Hospital_" asp-action="New" asp-controller="HospitalInfo">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10">checklist</i>
+                    </div>
+                    <span class="nav-link-text me-1">  معلومات اضافه کړي</span>
+                </a>
+            </li>
+            <li class="nav-item">
+             
+                <a class="nav-link " asp-action="Edit" asp-area="Hospital_" asp-controller="profile">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10">edit_note</i>
+                    </div>
+                    <span class="nav-link-text me-1">معلومات</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-action="Logout" asp-controller="Account" asp-area="Identity">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons-round opacity-10">logout</i>
+                    </div>
+                    <span class="nav-link-text me-1">وتل </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
 </aside>
