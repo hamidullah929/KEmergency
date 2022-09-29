@@ -1,6 +1,7 @@
 ﻿using Kemergency.Data;
 using Kemergency.Models;
 using Kemergency.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Kemergency.Controllers
 {
+
     public class HospitalsController : Controller
     {
 
@@ -94,7 +96,7 @@ namespace Kemergency.Controllers
 
             return View(hospital);
         }
-
+        [Authorize]
         public IActionResult BookingEdti(int id)
         {
             var hospital = _context.Hospitals.Include(s => s.Status).Include(h=>h.Hservice).SingleOrDefault(c => c.Id == id);

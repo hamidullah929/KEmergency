@@ -47,9 +47,13 @@ a.create-account {
   text-align: center;
   background: none;
 }
+
+
+
+
 .sectionLight {
-  background-color: #f5f6f8;
-  padding: 2rem;
+    background-color: #f5f6f8;
+    padding: 2rem;
 }
 
 .btnCente {

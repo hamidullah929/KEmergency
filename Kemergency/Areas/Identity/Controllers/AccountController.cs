@@ -22,8 +22,7 @@ namespace Kemergency.Areas.Identity.Controllers
         private readonly SignInManager<ApplicationUser> _signinManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        const string sessionKeyName = "UserName";
-        const string sessionKeyId = "UserId";
+ 
 
         public AccountController(ApplicationDbContext context, SignInManager<ApplicationUser> signinManager, UserManager<ApplicationUser> userManager)
         {

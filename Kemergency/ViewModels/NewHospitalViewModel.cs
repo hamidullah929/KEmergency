@@ -43,6 +43,7 @@ namespace Kemergency.ViewModels
         [Display(Name = " حالت")]
         public Status Status { get; set; }
         [BindNever]
+        [Display(Name = " حالت")]
         public byte StatusId { get; set; }
 
         [BindNever]

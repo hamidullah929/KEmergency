@@ -1,6 +1,7 @@
 ﻿using Kemergency.Areas.FireTrackK.Models;
 using Kemergency.Bussiness;
 using Kemergency.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kemergency.Controllers
 {
+  
     public class FireTrackServiceController : Controller
     {
         private FireTrackServices _context;
@@ -33,6 +35,7 @@ namespace Kemergency.Controllers
 
             return View(viemodel);
         }
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {

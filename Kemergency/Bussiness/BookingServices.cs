@@ -35,7 +35,7 @@ namespace Kemergency.Bussiness
             return booking;
         }           
 
-        public IEnumerable< Rental> GetAllByCustomerId(string cId)
+        public IEnumerable<Rental> GetAllByCustomerId(string cId)
         {
             var booking = _context.Rentals.Where(c => c.MyusersId == cId).
                 Include(c=>c.Hospital).Include(hs => hs.Hospital.Hservice).ToList();

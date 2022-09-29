@@ -34,7 +34,7 @@ namespace Kemergency.Models
         [Required(ErrorMessage = "حالت داخل کړي ")]
         public Status Status { get; set; }
         [Required(ErrorMessage = "حالت داخل کړي ")]
-       
+        [Display(Name = " حالت")]
         public int StatusId { get; set; }
         [Display(Name = "امبولانسونو تعداد")]
         [Required(ErrorMessage = "امبولانسونو تعداد داخل کړي ")]

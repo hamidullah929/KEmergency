@@ -9,7 +9,7 @@
             <div class="jumbotron jumbotron-fluid">
                 <div class="container-fluid">
                     <h1 class="display-4">د کندهار ښار ایمرجنسي خدمات</h1>
-                    <p class="lead">ناسو کولای سي چي امبولانس او اظفایه پر وخت راغواړی</p>
+                    <p class="lead">ناسو کولای سي چي امبولانس او اطفایه پر وخت راوغواړی</p>
                 </div>
             </div>
         </div>
@@ -71,15 +71,17 @@
     <div class="container">
         <div class="header clearfix detailHeading">
         </div>
-        <div class="jumbotron">
+        <div class="jumbotron" id="customejumbo">
 
             <div class="row branchInfo">
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-6">
                     <div>
                         <h2> @Html.DisplayFor(modelItem => item.Name)</h2>
                         <div class="branchContact">
                             <div id="branchAddress"> ادرس :@Html.DisplayFor(modelItem => item.Address) </div>
+                            <br />
                             <div id="branchTel">  موټروان :@Html.DisplayFor(modelItem => item.DriverName)  </div>
+                            <br />
                             <div id="branchTel"> موټروان نمبر :@Html.DisplayFor(modelItem => item.DriverNumber)  </div>
                         </div>
                         <div id="branchDescription">
@@ -96,12 +98,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 detailInfo">
+                <div class="col-md-4 col-sm-6 detailInfo">
                     <table>
                         <tr>
                             <td class="itemLabel"> مرکزۍ نمبر :@Html.DisplayFor(modelItem => item.phoneNumber) </td>
-
+                        
                         </tr>
+                           
                         @*<tr>
                                 <td class="itemLabel">
                                     Hospital close:@Html.DisplayFor(modelItem => item)
@@ -127,7 +130,7 @@
                         <tr>
                             <td>
                                 <a href="#" onclick="ShowEmployee(@item.Id)"><i class="fa fa-pencil"></i> </a>
-
+                                <br />
                                 <a class="btn btn-primary" asp-action="Edit" asp-controller="FireTrackService" asp-route-Id="@item.Id">خدمات راوغواړي</a>
                             </td>
 
@@ -179,10 +182,6 @@
         }
     </script>
 }
-
-            /**/
-
-            /**/
 
 
 

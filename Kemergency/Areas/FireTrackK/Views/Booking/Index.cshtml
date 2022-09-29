@@ -114,7 +114,22 @@
     <script>
 
         $(document).ready(function () {
-            $("#sampleTable").DataTable();
+            $("#sampleTable").DataTable({
+                "language": {
+                    "loadingRecords": "صفحي ...",
+                    "lengthMenu": "صفحی _MENU_ ",
+                    "zeroRecords": "لم يعثر على أية سجلات",
+                    "info": "صفحه _START_ تر _END_  پوري د_TOTAL_ ",
+                    "search": "پلټل:",
+                    "paginate": {
+                        "first": "اول",
+                        "previous": "مخکی",
+                        "next": "راتلونکي",
+                        "last": "اخیري"
+                    },
+
+                }
+            });
         })
 
             var Delete = function (Id) {
