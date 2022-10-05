@@ -4,3 +4,6 @@
 #customejumbo {
     background-color: #f5f6f8;
 }
+label .text-center {
+    text-align: right;
+}
