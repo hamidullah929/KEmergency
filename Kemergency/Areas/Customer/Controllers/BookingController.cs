@@ -107,5 +107,11 @@ namespace Kemergency.Areas.Customer.Controllers
 
             return PartialView("Details",viewModel);
         }
+
+        [Route("Customer/booking/ShowMap")]
+        public IActionResult  ShowMap()
+        {
+            return PartialView("Map");
+        }
     }
 }

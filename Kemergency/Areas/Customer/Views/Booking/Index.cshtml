@@ -63,22 +63,24 @@
                                                     </td>
                                                     @if (item.confirmed == true)
                                                     {
-                                                        <td>
-                                                            <span class="badge-success">تاید</span>
-                                                        </td>
+                                                <td>
+                                                    
+                                                    <span class="badge badge-sm bg-gradient-success">تاید</span>
+                                                </td>
                                                     }
                                                     else
                                                     {
-                                                        <td>
-                                                            <span class="badge-danger">نا تاید</span>
-                                                        </td>
+                                                <td>
+                                                    <span class="badge badge-sm bg-gradient-danger">نا تاید</span>
+                                                 
+                                                </td>
 
                                                     }
 
 
                                                     <td>
 
-                                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-map"> </i></a> |
+                                                        <a href="#" onclick="showMap()"><i class="fa fa-map"> </i></a> |
                                                         <a href="#" onclick="ShowEmployee('@item.Id')"><i class="fa fa-pencil"></i> </a>
                                                         <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
 
@@ -157,6 +159,18 @@
                                 $("#myModal").modal("show");
 
                             })
+                        }
+
+                        var showMap = function () {
+
+                            var url = "/customer/Booking/ShowMap";
+
+                            $("#myModalBodyDiv").load(url, function () {
+                                $("#myModal").modal("show");
+
+                            })
+                        }
+
 
                             //Or
                             //$.ajax({
@@ -174,7 +188,7 @@
                             //    }
 
                             //})
-                        }
+                    
                     </script>
 
                 }
