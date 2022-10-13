@@ -26,7 +26,7 @@ namespace Kemergency.Data
         public DbSet<FireTrackBooking> FireTrackBookings { get; set; }
         public DbSet<Myusers> Customers { get; set; }
         public DbSet<Rental> Rentals { get; set; }
-        public DbSet<Email> Emails { get; set; }
+       
         
         public DbSet<Kemergency.ViewModels.EditBookingViewModel> EditBookingViewModel { get; set; }
 

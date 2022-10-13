@@ -31,13 +31,13 @@ namespace Kemergency
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var emailconfig = Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+            services.AddSingleton(emailconfig);
+
             services.AddDbContextPool<ApplicationDbContext>(options =>
                   options.UseSqlServer(
-
-
-
-
-             Configuration.GetConnectionString("DefaultConnection")));
+             Configuration.GetConnectionString("DefaultConnection"))) ; 
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"));
@@ -58,6 +58,7 @@ namespace Kemergency
             });
             services.AddIdentity<ApplicationUser,IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddTransient<IEmailServices, EmailService>();
             services.AddAutoMapper(typeof(HospitalProfile));
             services.AddScoped<BookingServices>();
             services.AddScoped<HospitalServices>();

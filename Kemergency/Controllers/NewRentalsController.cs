@@ -19,12 +19,14 @@ namespace Kemergency.Controllers
         private BookingServices _bservices;
         private CustomerServices _Cservices;
         private UserManager<ApplicationUser> _signInManager;
-        public NewRentalsController(RentalServices context, UserManager<ApplicationUser> signInManager, BookingServices bservices, CustomerServices Cservices)
+        private IEmailServices _emailservices;
+        public NewRentalsController(RentalServices context, UserManager<ApplicationUser> signInManager, BookingServices bservices, CustomerServices Cservices, IEmailServices emailservices)
         {
             _Cservices = Cservices;
             _bservices = bservices;
             _context = context;
             _signInManager = signInManager;
+            _emailservices = emailservices;
         }
 
         public IActionResult New(int id)
@@ -55,6 +57,17 @@ namespace Kemergency.Controllers
                 CurrentUserId =user,
                 DateRented = DateTime.Now,
             };
+
+            var message = new Message
+            {
+                EmailToId = "hamidullahrostai@gmail.com",
+                EmailToName = "Hi",
+                EmailSubject = "تا سو خدمات په بریالی توب ونیول",
+                EmailBody = "تا سوچي کو خدمات نیولي هغه به ډیر ژر ورسیږي",
+
+            };
+            _emailservices.sendEmail(message);
+
             if(!ModelState.IsValid)
             {
                 return ViewBag("Inter Valid Data");
