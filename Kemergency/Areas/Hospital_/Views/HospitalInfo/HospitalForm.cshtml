@@ -14,9 +14,9 @@
                 </div>
             </div>
             <div class="card-body ">
-                @using (Html.BeginForm("Save", "HospitalInfo", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-
+                @*@using (Html.BeginForm("Save", "HospitalInfo" , FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {*@
+                <form asp-action="save" asp-controller="HospitalInfo" asp-area="Hospital_">
                     <div class="row">
                         <div class="col-lg-6">
                             @Html.ValidationSummary(true, "Please fix the following errors.")
@@ -98,7 +98,12 @@
                     </div>
                     @Html.HiddenFor(m => m.Hospital.Id)
                     @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-primary">اضافه کړي</button>}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mt-3">اضافه کړي</button>
+                    </div>
+
+
+                </form>
 
 
             </div>

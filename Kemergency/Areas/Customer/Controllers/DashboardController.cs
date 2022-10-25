@@ -21,7 +21,7 @@ namespace Kemergency.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            ViewBag.Appointments = _bookinservices.GetAll().Where(i => i.MyusersId == userId).Count();
+            ViewBag.Appointments = _bookinservices.GetAll().Count();
             return View();
         }
     }

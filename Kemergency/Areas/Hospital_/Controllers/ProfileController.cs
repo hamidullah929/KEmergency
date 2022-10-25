@@ -48,15 +48,15 @@ namespace Kemergency.Areas.Hospital_.Controllers
         [Route("Hospital_/Profile/EditUser")]
         public IActionResult EditUser( Myusers editUser)
         {
-            string wwwRootPath = _hostEnvironment.WebRootPath;
-            string fileName = Path.GetFileNameWithoutExtension(editUser.ImageFile.FileName);
-            string extension = Path.GetExtension(editUser.ImageFile.FileName);
-            editUser.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-            string path = Path.Combine(wwwRootPath + "/Images/", fileName);
-            using (var fileStream = new FileStream(path, FileMode.Create))
-            {
-                editUser.ImageFile.CopyToAsync(fileStream);
-            }
+            //string wwwRootPath = _hostEnvironment.WebRootPath;
+            //string fileName = Path.GetFileNameWithoutExtension(editUser.ImageFile.FileName);
+            //string extension = Path.GetExtension(editUser.ImageFile.FileName);
+            //editUser.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            //string path = Path.Combine(wwwRootPath + "/Images/", fileName);
+            //using (var fileStream = new FileStream(path, FileMode.Create))
+            //{
+            //    editUser.ImageFile.CopyToAsync(fileStream);
+            //}
             if (ModelState.IsValid)
             {
 

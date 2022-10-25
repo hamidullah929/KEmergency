@@ -15,7 +15,7 @@
     <link href="~/MainLaout/css/myown.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
-    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/toastr.js/toastr.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
@@ -297,34 +297,7 @@
             },
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            $("#btnsubmit").click(function () {
-
-
-                var data = $("#myForm").serialize();
-
-                $.ajax({
-
-                    type: "post",
-                    url: "/Hospital_/Booking/Edit",
-                    data: data,
-
-                    success: function (response) {
-                        if (response.success) {
-                            toastr.success("تا سو خدمات تاید کړل");
-                        } else {
-                            toastr.error("تا سو خدمات رد سول   ")
-                        }
-                        window.location.href = "/Hospital_/Booking/Edit";
-
-                    }
-
-                })
-            })
-
-        })
-    </script>
+    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -25,7 +25,7 @@ namespace Kemergency.Bussiness
             try
             {
                 MimeMessage emailMessage = new MimeMessage();
-                MailboxAddress emailFrom = new MailboxAddress(_emailConfiguration.Name, _emailConfiguration.EmailId);
+                MailboxAddress emailFrom = new MailboxAddress("کندهار امرجنسي", "hakimsadat910@gmail.com");
                 emailMessage.From.Add(emailFrom);
                 MailboxAddress emailTo = new MailboxAddress(message.EmailToName, message.EmailToId);
                 emailMessage.To.Add(emailTo);
@@ -35,10 +35,10 @@ namespace Kemergency.Bussiness
                 emailMessage.Body = emailBodyBuilder.ToMessageBody();
                 SmtpClient emailClient = new SmtpClient();
 
-                emailClient.Connect(_emailConfiguration.Host, _emailConfiguration.Port, _emailConfiguration.UseSSL);
+                emailClient.Connect("smtp.gmail.com",465, true);
 
                // emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
-                emailClient.Authenticate(_emailConfiguration.EmailId, _emailConfiguration.Password);
+                emailClient.Authenticate("hakimsadat910@gmail.com", "Hakim0728280536");
                 emailClient.Send(emailMessage);
                 emailClient.Disconnect(true);
                 emailClient.Dispose();

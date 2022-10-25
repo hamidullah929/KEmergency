@@ -15,6 +15,18 @@
             padding: 0;
         }
     </style>
+   
+
+</head>
+<body>
+    <div id="map"></div>
+
+    <!--
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with
+    -->
     <script type="module">
         let map;
 
@@ -28,18 +40,7 @@
         window.initMap = initMap;
 
     </script>
-
-</head>
-<body>
-    <div id="map"></div>
-
-    <!--
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with
-    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzcF8teRMyCheW9uoa9j6-8s1A9nsC7GQ&callback=initMap&v=weekly"
             defer></script>
 </body>
 </html>

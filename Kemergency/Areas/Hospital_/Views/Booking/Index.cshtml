@@ -150,7 +150,44 @@
         }
 
     </script>
-   
+    <script>
+
+
+
+        $(document).ready(function () {
+
+            $("#btnsubmit").click(function () {
+
+                var myformdata = $("#myform").serialize();
+                // var mid = $("#myId").val();
+                $.ajax({
+
+                    type: "POST",
+                    url: "/Hospital_/Booking/Edit",
+                    data: myformdata,
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    success: function (response) {
+                        $("#myModal").modal("hide");
+                        window.location.href = "/hospital_/booking/Edit";
+                        if (response.success) {
+                            toastr.success("تا سو خدمات ونیول")
+                        } else {
+                            toastr.error("تا سو خدمات ونه نیول سول ")
+                        }
+
+                    }
+
+                })
+            })
+        })
+
+
+
+
+
+
+    </script>
+
 
 }
 

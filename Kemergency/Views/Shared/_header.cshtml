@@ -2,7 +2,68 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-inverse">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-ambulance me-3"></i>امرجنسي</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a asp-action="index" asp-controller="Home" class="nav-item nav-link active">اصلي صفحه</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">خدمات</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a asp-action="booking" asp-controller="Hospitals" class="dropdown-item">امبولانس</a>
+                        <a asp-action="index" asp-controller="FireTrackService" class="dropdown-item">اطفایه</a>
+                        <a asp-action="booking" asp-controller="Hospitals" class="dropdown-item">ډاکټر</a>
+                    </div>
+                </div>
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("hospital"))
+                {
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a asp-action="index" asp-controller="Dashboard" asp-area="hospital_" class="dropdown-item"> اصلی صفحه</a>
+                            <a asp-action="Edit" asp-controller="Profile" asp-area="hospital_" class="dropdown-item">معلومات</a>
+                            <a asp-action="Logout" asp-controller="Account" asp-area="Identity" class="dropdown-item">وتل</a>
+                        </div>
+                    </div>
+                }
+                else if (SignInManager.IsSignedIn(User) && User.IsInRole("Fire"))
+
+                {
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a asp-action="index" asp-controller="Dashboard" asp-area="FireTrackK" class="dropdown-item"> اصلی صفحه</a>
+                            <a asp-action="Edit" asp-controller="Profile" asp-area="FireTrackK" class="dropdown-item">معلومات</a>
+                            <a asp-action="Logout" asp-controller="Account" asp-area="Identity" class="dropdown-item">وتل</a>
+                        </div>
+                    </div>
+
+
+                }
+                else if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a asp-action="index" asp-controller="Dashboard" asp-area="Customer" class="dropdown-item"> اصلی صفحه</a>
+                            <a asp-action="Edit" asp-controller="Profile" asp-area="Customer"_ class="dropdown-item">معلومات</a>
+                            <a asp-action="Logout" asp-controller="Account" asp-area="Identity" class="dropdown-item">وتل</a>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+            <a asp-area="Identity" asp-controller="Account" asp-action="Login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">ننوتل<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+
+@*<nav class="navbar navbar-expand-lg navbar-light bg-inverse">
     <a class="navbar-brand" href="#"><img id="logo" src="~/MainLaout/img/th (2).jpg"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -91,6 +152,6 @@
             }
         </ul>
     </div>
-</nav>
+</nav>*@
 
 

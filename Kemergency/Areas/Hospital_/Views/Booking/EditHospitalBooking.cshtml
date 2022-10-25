@@ -7,43 +7,28 @@
 
 
 
-@*<h4>Are you sure to confirm this booking</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post" asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-
-
-                <input hidden asp-for="MyusersId" class="form-control" />
-
-
-
-
-                <input type="submit" value="Edit" class="btn btn-success">
-
-
-
-            </form>
-        </div>
-    </div>*@
 
 <h4>تاسو غواړي دا تاید کړي</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="myform">
+        <form asp-action="Edit" asp-controller="Booking" asp-area="Hospital_">
+            @* asp-action="Edit" asp-controller="Booking" asp-area="Hospital_">*@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" id="myId" asp-for="Id" />
 
+            <div class="form-group">
+                <input type="hidden" asp-for="MyusersId" class="form-control" />
+            </div>
 
-            <input type="hidden" asp-for="MyusersId" class="form-control" />
 
+            @*<div class="form-group">
+                <button id="btnsubmit" value="تا ید کول" class="btn btn-success btn-block">hi</button>
+            </div>*@
 
-
-          
-            <button id="btnsubmit" class="btn btn-primary btn-block" >تا ید کول</button>
+            <div class="form-group">
+                    <input type="submit" value="تا ید کول" class="btn btn-success btn-block">
+                </div>
 
 
 
@@ -54,8 +39,44 @@
 
 
 @section Scripts{
+    
+    @*<script>
 
-   
+
+
+        $(document).ready(function () { 
+
+            $("#btnsubmit").click(function () { 
+
+            var myformdata = $("#myform").serialize();
+            // var mid = $("#myId").val();
+            $.ajax({
+
+                type: "POST",
+                url: "/Hospital_/Booking/Edit",
+                data: myformdata,
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                success: function (response) {
+                    $("#myModal").modal("hide");
+                    window.location.href = "/hospital_/booking/Edit";
+                    if (response.success) {
+                        toastr.success("تا سو خدمات ونیول")
+                    } else {
+                        toastr.error("تا سو خدمات ونه نیول سول ")
+                    }
+
+                }
+
+            })
+            })
+        })
+
+
+
+
+
+
+    </script>*@
 
 
 

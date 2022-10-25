@@ -1,36 +1,64 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
     <!DOCTYPE html>
-    <html lang="a" dir="rtl">
+    <html lang="a">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
-        <link href="~/font-awesome/css/fontawesome.css" rel="stylesheet" />
-        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-        <link href="~/MainLaout/css/main.css" rel="stylesheet" />
-        <link href="~/MainLaout/css/StyleSheet.css" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+        <title>کندهار امرجنسي</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+        <!-- Favicon -->
+
         <link href="~/toastr.js/toastr.css" rel="stylesheet" />
-        <title>امرجنسي</title>
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+        <!-- Libraries Stylesheet -->
+        <link href="~/Homepagelayout/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/Homepagelayout/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="~/Homepagelayout/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="~/Homepagelayout/css/style.css" rel="stylesheet">
     </head>
-        <body>
-           
-                <partial name="_header" />
-     
 
-                <div class="container">
-                    <main role="main" class="pb-3">
-                        @RenderBody()
-                    </main>
-                </div>
+  
+    <body>
 
-                <partial name="_footer" />
+        <partial name="_header" />
 
-                <script src="~/lib/jquery/dist/jquery.js"></script>
-                <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-                <script src="~/toastr.js/toastr.min.js"></script>
-                @await RenderSectionAsync("Scripts", required: false)
-        </body>
-</html>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <partial name="_footer" />
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/toastr.js/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Homepagelayout/lib/wow/wow.min.js"></script>
+        <script src="~/Homepagelayout/lib/easing/easing.min.js"></script>
+        <script src="~/Homepagelayout/lib/waypoints/waypoints.min.js"></script>
+        <script src="~/Homepagelayout/lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="~/Homepagelayout/js/main.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+    </html>
