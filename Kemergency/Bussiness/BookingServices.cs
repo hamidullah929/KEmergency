@@ -65,6 +65,12 @@ namespace Kemergency.Bussiness
                .FirstOrDefault(d => d.MyusersId == id);
             return booking;
         }
+
+        public Rental GetCustomerbyInt(int id)
+        {
+            var booking = _context.Rentals.Include(c => c.Myusers).Include(c => c.Hospital).Include(h => h.Hospital.Hservice).FirstOrDefault(d => d.Id == id);
+            return booking;
+        }
         public Rental GetBYHospitalId(int id)
 
         {

@@ -6,9 +6,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h2>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي دي</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي دي</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -22,9 +22,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h5>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي د</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي د</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -46,7 +46,7 @@
             <div class="col-lg-7 col-md-6">
                 <div class="row g-3">
                     <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                        <a class="position-relative d-block overflow-hidden" href="">
+                        <a class="position-relative d-block overflow-hidden" asp-action="index" asp-controller="FireTrackService" >
                             <img class="img-fluid" src="~/Homepagelayout/img/fire-track.jpg" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                 <h5 class="m-0">اطفایه</h5>
@@ -55,7 +55,7 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                        <a class="position-relative d-block overflow-hidden" href="">
+                        <a class="position-relative d-block overflow-hidden" asp-action="Booking" asp-controller="Hospitals">
                             <img class="img-fluid" src="~/Homepagelayout/img/nurse.jpg" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                 <h5 class="m-0">نرس</h5>
@@ -64,7 +64,7 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                        <a class="position-relative d-block overflow-hidden" href="">
+                        <a class="position-relative d-block overflow-hidden" asp-action="Booking" asp-controller="Hospitals">
                             <img class="img-fluid" src="~/Homepagelayout/img/doctor.jpg" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                 <h5 class="m-0">ډاکتر</h5>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                <a class="position-relative d-block h-100 overflow-hidden" href="">
+                <a class="position-relative d-block h-100 overflow-hidden" asp-action="Booking" asp-controller="Hospitals">
                     <img class="img-fluid position-absolute w-100 h-100" src="~/Homepagelayout/img/amb.jpeg" alt="" style="object-fit: cover;">
                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
                         <h5 class="m-0">امبولانس</h5>
@@ -100,15 +100,19 @@
                 <h5 class="mb-0">سیدال هسپتال</h5>
                 <p>کندهار</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">
+                        سیدال معالجوی روغتون
+                        :ادرس
+                        کندهار  ولایت کابل دروازه د دارالمعلمین عمومی سړک سیدال روغتون
+                    </p>
                 </div>
             </div>
             <div class="testimonial-item text-center">
                 <img class="border rounded-circle p-2 mx-auto mb-3" src="~/Homepagelayout/img/hss.jpg" style="width: 80px; height: 80px;">
-                <h5 class="mb-0">میر ویس هسپتال</h5>
+                <h5 class="mb-0">نوی ایوبي روغتون</h5>
                 <p>کندهار</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">نوی ایوبي روغتون په کندهار کي د هیواد‌ په کچه یو له بهترينو روغتونونو څخه دی، او ۲۴ ساعته ۷ ورځي د‌ باعزته اولس په خدمت کي دی.</p>
                 </div>
             </div>
             <div class="testimonial-item text-center">
@@ -116,7 +120,10 @@
                 <h5 class="mb-0">مهمند هسپتال</h5>
                 <p>کندهار</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">
+                        په افغانستان کی لومړی نړیوال معیاری روغتون
+                        ادرس: مهمند نړيوال ۲۰۰ بستريز روغتون شهرنو، کندهار، افغانستان
+                    </p>
                 </div>
             </div>
             <div class="testimonial-item text-center">
@@ -124,7 +131,7 @@
                 <h5 class="mb-0">میر ویس هسپتال</h5>
                 <p>کندهار</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">ادرس کندهار ډنډ چوک میر ویس هسپتال  </p>
                 </div>
             </div>
         </div>

@@ -17,9 +17,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h2>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي دي</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي دي</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -33,9 +33,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h5>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي د</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي د</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -53,24 +53,24 @@
 
 @foreach (var item in Model)
 {
-    <div class="card mb-3">
-        <div class="card-header">
-            <h2> @Html.DisplayFor(modelItem => item.ServicesName)</h2>
+    <div class="card mb-3 m-5">
+        <div class="card-header" >
+            <h2 style="float: right"> @Html.DisplayFor(modelItem => item.ServicesName)</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body m-3">
 
-            <div class="row">
+            <div class="row m-3">
                 <div class="col-md-8 col-sm-6">
                     <div>
-                      
-                        <div class="branchContact">
-                            <div id="branchAddress">ادرس:@Html.DisplayFor(modelItem => item.Address) </div>
-                            <div id="branchTel">هسپتال نوم:@Html.DisplayFor(modelItem => item.HospitalName) </div>
-                            <div id="branchTel">ټلیفون:@Html.DisplayFor(modelItem => item.Phone) </div>
+
+                        <div class="m-3">
+                            <div> <b>ادرس:</b>   @Html.DisplayFor(modelItem => item.Address) </div>
+                            <br />
+                            <div><b>هسپتال نوم</b>:@Html.DisplayFor(modelItem => item.HospitalName) </div>
+                            <br />
+                            <div><b>ټلیفون</b>:@Html.DisplayFor(modelItem => item.Phone) </div>
                         </div>
-                        <div id="branchDescription">
-                            <p class="caption"></p>
-                        </div>
+
 
                         <div id="branchHours">
                             <ul>
@@ -82,51 +82,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4  col-sm-6 detailInfo ">
-                    <table>
-                        <tr>
-                            <td class="itemLabel">کاري وخت: @Html.DisplayFor(modelItem => item.OpenTime) </td>
+                <div class="col-md-4  col-sm-6">
 
-                        </tr>
-                        <tr>
-                            <td class="itemLabel">
-                                دبندولو وخت:@Html.DisplayFor(modelItem => item.CloseTime)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="itemLabel">
-                                دامبو لانسونو تعداد:@Html.DisplayFor(modelItem => item.AvaliableAmbuliance)
-                            </td>
-                        </tr>
-                        <tr>
-                            @if (item.HospitalStaus == "Open")
-                            {
-                                <td class="itemLabel"> حالت: <span class="badge-success">  @Html.DisplayFor(modelItem => item.HospitalStaus)</span> </td>
-                            }
-                            else
-                            {
-                                <td class="itemLabel">حالت:<span class="badge-danger">@Html.DisplayFor(modelItem => item.HospitalStaus)</span> </td>
+                    <div class="m-3">
+                        <div> <b>کاري وخت:</b>   @Html.DisplayFor(modelItem => item.OpenTime) </div>
+                        <br />
+                        <div><b>دبندولو وخت</b>:@Html.DisplayFor(modelItem => item.CloseTime) </div>
+                        <br />
+                        <div><b>دامبو لانسونو تعداد</b>:@Html.DisplayFor(modelItem => item.AvaliableAmbuliance) </div>
 
-                            }
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="btn btn-primary" asp-action="BookingEdti" asp-controller="Hospitals" asp-route-Id="@item.Id"> خدمات راوغواړي</a>
-                            </td>
+                        <div style="margin-top: 6px">
+                            <a class="btn btn-primary" asp-action="BookingEdti" asp-controller="Hospitals" asp-route-Id="@item.Id"> خدمات راوغواړي</a>
+                        </div>
+                    </div>
 
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
+  
     </div>
 }
-
-
-
-
-
 
 
 

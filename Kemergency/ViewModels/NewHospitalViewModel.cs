@@ -18,25 +18,27 @@ namespace Kemergency.ViewModels
         [Display(Name = " خدمات")]
         public IEnumerable<Hservice> hservices { get; set; }
         [BindNever]
-        [Display(Name = " هسبتال نوم")]
+        [Display(Name = " هسپتال نوم")]
         public Hospital  Hospital { get; set; }
      
         public int Id { get; set; }
         [BindNever]
         [Display(Name = " خدمات نوم")]
         public string ServicesName { get; set; }
-        [Display(Name = " هسبتال نوم")]
+        [Display(Name = " هسپتال نوم")]
         public string Name { get; set; }
 
         [BindNever]
-        [Display(Name = " هسبتال ادرس")]
+        [Display(Name = " هسپتال ادرس")]
         public string Address { get; set; }
 
         [BindNever]
-        [Display(Name = " هسبتال تلیفون")]
+        [Display(Name = " هسپتال تلیفون")]
         public string Telephone { get; set; }
 
         [Display(Name = " کاري وخت ")]
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateOpen { get; set; }
 
         [BindNever]
@@ -47,6 +49,7 @@ namespace Kemergency.ViewModels
         public byte StatusId { get; set; }
 
         [BindNever]
+        [Display(Name = " د امبولانسونو تعداد")]
         public string NumberOfAmbuliance { get; set; }
 
         [BindNever]

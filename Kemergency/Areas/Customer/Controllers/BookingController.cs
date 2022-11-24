@@ -79,15 +79,11 @@ namespace Kemergency.Areas.Customer.Controllers
 
 
         [Route("Customer/booking/Details")]
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
             
-            if(id == null)
-            {
-                return ViewBag("NotFOund");
-            }
-
-            var bookingDetails = _context.GetByCustomreId(id);
+       
+            var bookingDetails = _context.GetCustomerbyInt(id);
            // var hospitalDetails = _hospitalservices.GetByServices(id);
             
             var viewModel = new HospitalBookingViewModel

@@ -1,8 +1,6 @@
 ﻿<html>
 <head>
     <title>Simple Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
     <style>
         #map {
             height: 100%;
@@ -15,32 +13,33 @@
             padding: 0;
         }
     </style>
-   
+
 
 </head>
 <body>
     <div id="map"></div>
-
+   <img src="~/AreaLayout/img/map.jpg" class="img-fluid height-500"/>
     <!--
      The `defer` attribute causes the callback to execute after the full HTML
      document has been parsed. For non-blocking uses, avoiding race conditions,
      and consistent behavior across browsers, consider loading using Promises
      with
     -->
-    <script type="module">
-        let map;
+    @*<script type="module">
+            let map;
 
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 8,
-            });
-        }
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                });
+            }
 
-        window.initMap = initMap;
+            window.initMap = initMap;
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzcF8teRMyCheW9uoa9j6-8s1A9nsC7GQ&callback=initMap&v=weekly"
-            defer></script>
+        </script>
+        <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOS0q8q9UbqQWP3kPR_kuPrqm6lW5F7GM&callback=initMap">
+        </script>*@
 </body>
 </html>

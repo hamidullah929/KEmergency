@@ -71,7 +71,7 @@
 
                                 <label asp-for="Hospital.DateOpen" class="control-label "></label>
                                 <div class="input-group input-group-outline">
-                                    <input asp-for="Hospital.DateOpen" class="form-control" />
+                                    <input asp-for="Hospital.DateOpen" type="date" asp-format="{0:MM/dd/yyyy}" class="form-control" />
                                 </div>
 
                                 <span asp-validation-for="Hospital.DateOpen" class="text-danger"></span>
@@ -81,7 +81,7 @@
 
                                 <label asp-for="Hospital.ClosDate" class="control-label "></label>
                                 <div class="input-group input-group-outline ">
-                                    <input asp-for="Hospital.ClosDate" class="form-control" />
+                                    <input asp-for="Hospital.ClosDate" type="date" asp-format="{0:MM/dd/yyyy}" class="form-control" />
                                 </div>
 
                                 <span asp-validation-for="Hospital.ClosDate" class="text-danger"></span>
@@ -93,9 +93,6 @@
 
                     </div>
 
-                    <div class="checkbox">
-
-                    </div>
                     @Html.HiddenFor(m => m.Hospital.Id)
                     @Html.AntiForgeryToken()
                     <div class="form-group">

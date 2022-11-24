@@ -10,9 +10,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h2>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي دي</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2"> زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي دي</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -26,9 +26,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">امرجنسي خدمات</h5>
-                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي امرجنسي خدمات راوغواړي</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي امرجنسي خدمات ته پر وخت لاس رسي د</p>
+                            <h2 class="text-primary text-uppercase mb-3 animated slideInDown">ایمرجنسي خدمات</h2>
+                            <h1 class="display-3 text-white animated slideInDown">په لنډ وخت کي ایمرجنسي خدمات راوغواړي</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">زموږ موخه په کندهار ښار کي ایمرجنسي خدمات ته پر وخت لاس رسي د</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">نور معلومات</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">نوی یاست</a>
                         </div>
@@ -48,75 +48,41 @@
 
 @foreach (var item in Model)
 {
-    <div class="card mb-3">
-        <div class="card-header">
-            <h2> @Html.DisplayFor(modelItem => item.Name)</h2>
+    <div class="card mb-3 m-5">
+        <div class="card-header" >
+            <h2 style="float: right"> @Html.DisplayFor(modelItem => item.Name)</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body m-3">
 
-            <div class="row">
+            <div class="row m-3">
                 <div class="col-md-8 col-sm-6">
                     <div>
-                       
-                        <div class="branchContact">
-                            <div id="branchAddress"> ادرس :@Html.DisplayFor(modelItem => item.Address) </div>
-                            <br />
-                            <div id="branchTel">  موټروان :@Html.DisplayFor(modelItem => item.DriverName)  </div>
-                            <br />
-                            <div id="branchTel"> موټروان نمبر :@Html.DisplayFor(modelItem => item.DriverNumber)  </div>
-                        </div>
-                        <div id="branchDescription">
-                            <p class="caption"></p>
-                        </div>
 
-                        <div id="branchHours">
-                            <ul>
-                                @*@foreach (var day in )
-                                    {
-                                    <li></li>
-                                    }*@
-                            </ul>
+                        <div class="branchContact">
+                            <div><b> ادرس </b>:@Html.DisplayFor(modelItem => item.Address) </div>
+                            <br />
+                            <div><b>  موټروان </b>:@Html.DisplayFor(modelItem => item.DriverName)  </div>
+                            <br />
+
                         </div>
+                       
+
+                     
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 detailInfo">
-                    <table>
-                        <tr>
-                            <td class="itemLabel"> مرکزۍ نمبر :@Html.DisplayFor(modelItem => item.phoneNumber) </td>
-                        
-                        </tr>
-                           
-                        @*<tr>
-                                <td class="itemLabel">
-                                    Hospital close:@Html.DisplayFor(modelItem => item)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="itemLabel">
-                                    Number Of Ambuliance:@Html.DisplayFor(modelItem => item)
-                                </td>
-                            </tr>*@
-                        <tr>
-                            @*@if ()
-                                {
-                                <td class="itemLabel"> Hospital Status: <span class="badge-success">  @Html.DisplayFor(modelItem => item)</span> </td>
-                                }
-                                else
-                                {
-                                <td class="itemLabel">Hospital Status:<span class="badge-danger">@Html.DisplayFor(modelItem => item)</span> </td>
+                <div class="col-md-4  col-sm-6">
 
-                                }*@
+                    <div class="branchContact">
+                        <div><b> مرکزۍ نمبر </b>:@Html.DisplayFor(modelItem => item.phoneNumber) </div>
+                        <br />
+                        <div> <b> موټروان نمبر </b>:@Html.DisplayFor(modelItem => item.DriverName)  </div>
+                        <br />
+                        <div>
+                            <a class="btn btn-primary" asp-action="Edit" asp-controller="FireTrackService" asp-route-Id="@item.Id">خدمات راوغواړي</a>
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" onclick="ShowEmployee(@item.Id)"><i class="fa fa-pencil"></i> </a>
-                                <br />
-                                <a class="btn btn-primary" asp-action="Edit" asp-controller="FireTrackService" asp-route-Id="@item.Id">خدمات راوغواړي</a>
-                            </td>
-
-                        </tr>
-                    </table>
+                        </div>
+                    </div>
+                   
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -147,22 +113,24 @@
 
 
 
-@section Scripts{
-    <script>
+
+
+                    @section Scripts{
+                        <script>
 
 
 
-        var ShowEmployee = function (employeeId) {
+                            var ShowEmployee = function (employeeId) {
 
-            var url = "/FireTrackService/Edit?Id=" + employeeId;
+                                var url = "/FireTrackService/Edit?Id=" + employeeId;
 
-            $("#myModalBodyDiv").load(url, function () {
-                $("#myModal").modal("show");
+                                $("#myModalBodyDiv").load(url, function () {
+                                    $("#myModal").modal("show");
 
-            })
-        }
-    </script>
-}
+                                })
+                            }
+                        </script>
+                    }
 
 
 

@@ -3,8 +3,8 @@
 
 
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-ambulance me-3"></i>امرجنسي</h2>
+        <a href="#" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-ambulance me-3"></i>ايمرجنسي</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -51,15 +51,37 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
                         <div class="dropdown-menu fade-down m-0">
                             <a asp-action="index" asp-controller="Dashboard" asp-area="Customer" class="dropdown-item"> اصلی صفحه</a>
-                            <a asp-action="Edit" asp-controller="Profile" asp-area="Customer"_ class="dropdown-item">معلومات</a>
+                            <a asp-action="Edit" asp-controller="Profile" asp-area="Customer" _ class="dropdown-item">معلومات</a>
                             <a asp-action="Logout" asp-controller="Account" asp-area="Identity" class="dropdown-item">وتل</a>
                         </div>
                     </div>
 
 
                 }
+                else if (SignInManager.IsSignedIn(User) && User.IsInRole("admin"))
+                {
+                    @*<div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <i class="fa fa-user fa-lg color-black-opacity-5"></i></a>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a asp-action="index" asp-controller="Dashboard" asp-area="Customer" class="dropdown-item"> اصلی صفحه</a>
+                            <a asp-action="Edit" asp-controller="Profile" asp-area="Customer" _ class="dropdown-item">معلومات</a>
+                            <a asp-action="Logout" asp-controller="Account" asp-area="Identity" class="dropdown-item">وتل</a>
+                        </div>
+                    </div>*@
+
+
+                }
             </div>
-            <a asp-area="Identity" asp-controller="Account" asp-action="Login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">ننوتل<i class="fa fa-arrow-right ms-3"></i></a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+        <a asp-area="Identity" asp-controller="Account" asp-action="Logout" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">وتل<i class="fa fa-arrow-right ms-3"></i></a>
+
+            }
+            else
+            {
+                <a asp-area="Identity" asp-controller="Account" asp-action="Login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">ننوتل<i class="fa fa-arrow-right ms-3"></i></a>
+
+            }
         </div>
     </nav>
 

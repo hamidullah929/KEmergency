@@ -7,7 +7,7 @@
 }
 .toast-message a,
 .toast-message label {
-  color: #FFFFFF;
+  color: green;
 }
 .toast-message a:hover {
   color: #CCCCCC;
@@ -114,7 +114,7 @@ button.toast-close-button {
   -moz-box-shadow: 0 0 12px #999999;
   -webkit-box-shadow: 0 0 12px #999999;
   box-shadow: 0 0 12px #999999;
-  color: #FFFFFF;
+  color: white;
   opacity: 0.8;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   filter: alpha(opacity=80);
@@ -161,7 +161,7 @@ button.toast-close-button {
   background-color: #030303;
 }
 .toast-success {
-  background-color: #51A351;
+  background-color: green !important;
 }
 .toast-error {
   background-color: #BD362F;

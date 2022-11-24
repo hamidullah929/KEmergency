@@ -56,7 +56,7 @@ namespace Kemergency.Areas.Hospital_.Controllers
 
                 };
 
-                return View("HospitalForm", viewModel);
+              //  return View("HospitalForm", viewModel);
             }
             if (hospital.Id == 0)
                 //    string wwwRootPath = _hostEnvironment.WebRootPath;

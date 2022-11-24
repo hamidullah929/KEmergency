@@ -107,6 +107,7 @@ namespace Kemergency.Areas.Identity.Controllers
         [HttpGet]
         [AllowAnonymous]   // allow some one to have access to login page
         [Route("Identity/Account/Login")]
+        [Route("Account/Login")]
         public IActionResult Login()
         {
             return View();
